@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Designer - Graphic Design Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #2d4059;
+            --secondary: #ea5455;
+            --accent: #ffb400;
+            --light: #f6f6f6;
+            --dark: #222831;
+            --transition: all 0.3s ease;
+            --link-color: #d64161;
+            --link-hover: #ff6b81;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', 'Segoe UI', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(234, 84, 85, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(45, 64, 89, 0.4);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        .bilingual {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .bilingual .arabic {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .bilingual .english {
+            color: #666;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.98);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--secondary);
+            margin-right: 5px;
+        }
+
+        .logo .english {
+            font-size: 14px;
+            margin-right: 10px;
+            color: #777;
+            font-weight: normal;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(45, 64, 89, 0.9), rgba(234, 84, 85, 0.8)), url('https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-btns {
+            animation: fadeIn 1s ease 0.6s both;
+        }
+
+        .hero-btns .btn {
+            margin: 0 10px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .about-img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill {
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background-color: #f9f9f9;
+        }
+
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: none;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            border-radius: 30px;
+            color: var(--dark);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(234, 84, 85, 0.3);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            position: relative;
+            background: white;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .portfolio-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary);
+            transform: scaleX(0);
+            transition: var(--transition);
+            transform-origin: left;
+        }
+
+        .service-card:hover:before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 50px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+        }
+
+        .testimonials .section-title {
+            color: white;
+        }
+
+        .testimonials .section-title:after {
+            background: var(--accent);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-slide {
+            text-align: center;
+            padding: 30px;
+            display: none;
+            animation: fadeIn 1s ease;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+        }
+
+        .client-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .client-name {
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(234, 84, 85, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-about, .footer-links, .footer-services {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links ul, .footer-services ul {
+            list-style: none;
+        }
+
+        .footer-links li, .footer-services li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a, .footer-services a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            padding-right: 15px;
+        }
+
+        .footer-links a:before, .footer-services a:before {
+            content: '›';
+            position: absolute;
+            right: 0;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover, .footer-services a:hover {
+            color: var(--accent);
+            padding-right: 20px;
+        }
+
+        .footer-links a:hover:before, .footer-services a:hover:before {
+            right: -5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background: white;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-btns .btn {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+            
+            .portfolio-filters {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span>تصميم</span>جرافيك
+                
+                <span class="english">Do'oa Altayeb</span>
+            </a>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">الرئيسية <span class="english">Home</span></a></li>
+                    <li><a href="#about">من أنا <span class="english">About</span></a></li>
+                    <li><a href="#portfolio">معرض الأعمال <span class="english">Portfolio</span></a></li>
+                    <li><a href="#services">الخدمات <span class="english">Services</span></a></li>
+                    <li><a href="#testimonials">آراء العملاء <span class="english">Testimonials</span></a></li>
+                    <li><a href="#contact">اتصل بي <span class="english">Contact</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content"><br><br><br>
+            <h1>المصممة دعآء <span class="english"></span></h1>
+            <p>مصمم جرافيك مبدع ومتخصص في تصميم الهويات البصرية والمواد التسويقية الإبداعية التي تترك انطباعاً قوياً</p>
+            <p class="english">Creative Graphic Designer specializing in visual identities and marketing materials that make a lasting impression</p>
+            <div class="hero-btns">
+                <a href="#portfolio" class="btn">شاهد أعمالي <span class="english">View My Work</span></a>
+                <a href="#contact" class="btn">تواصل معي <span class="english">Contact Me</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">من أنا <span class="english">About Me</span></h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80" alt="أحمد المصمم">
+                </div>
+                <div class="about-text">
+                    <div class="bilingual">
+                        <h3 class="arabic">مرحباً، أنا دعآء الطيب.</h3>
+                        <h3 class="english">Hello, I'm Do'oa Altayeb</h3>
+                    </div>
+                    <p>أنا مصمم جرافيك محترف مع أكثر من 8 سنوات من الخبرة في مجال التصميم. أتمتع بشغف كبير لتحويل الأفكار إلى تصاميم إبداعية تلهم الجمهور وتحقق أهداف العملاء.</p>
+                    <p class="english">I'm a professional graphic designer with over 8 years of experience in the design field. I have a great passion for transforming ideas into creative designs that inspire audiences and achieve client goals.</p>
+                    <p>تخصصت في تصميم الهويات البصرية، الشعارات، المواد التسويقية، وتصميم الواجهات الرقمية. أعمل دائماً على مواكبة أحدث اتجاهات التصميم وأساليب العمل لضمان تقديم أعلى مستوى من الجودة.</p>
+                    <p class="english">I specialize in visual identity design, logos, marketing materials, and digital interface design. I always keep up with the latest design trends and working methods to ensure the highest quality delivery.</p>
+                    <div class="skills">
+                        <div class="skill">
+                            <span class="arabic">تصميم الشعارات</span>
+                            <span class="english">Logo Design</span>
+                        </div>
+                        <div class="skill">
+                            <span class="arabic">الهوية البصرية</span>
+                            <span class="english">Visual Identity</span>
+                        </div>
+                        <div class="skill">
+                            <span class="arabic">تصميم الويب</span>
+                            <span class="english">Web Design</span>
+                        </div>
+                        <div class="skill">
+                            <span class="arabic">التصميم التفاعلي</span>
+                            <span class="english">UI/UX Design</span>
+                        </div>
+                        <div class="skill">
+                            <span class="arabic">الطباعة</span>
+                            <span class="english">Print Design</span>
+                        </div>
+                        <div class="skill">
+                            <span class="arabic">الرسوم المتحركة</span>
+                            <span class="english">Motion Graphics</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn" style="margin-top: 20px;">اطلب خدمة <span class="english">Request Service</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">معرض الأعمال <span class="english">Portfolio</span></h2>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">الكل <span class="english">All</span></button>
+                <button class="filter-btn" data-filter="branding">هوية بصرية <span class="english">Branding</span></button>
+                <button class="filter-btn" data-filter="web">تصميم ويب <span class="english">Web Design</span></button>
+                <button class="filter-btn" data-filter="print">طباعة <span class="english">Print</span></button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="branding">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80" alt="تصميم شعار">
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="bilingual">
+                            <h3 class="arabic">هوية بصرية لمطعم</h3>
+                            <h3 class="english">Restaurant Brand Identity</h3>
+                        </div>
+                        <p>تصميم هوية بصرية متكاملة لمطعم المأكولات والوجبات السريعة</p>
+                        <p class="english">Complete visual identity design for a  restaurants</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="تصميم موقع">
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="bilingual">
+                            <h3 class="arabic">تصميم موقع إلكتروني</h3>
+                            <h3 class="english">Website Design</h3>
+                        </div>
+                        <p>تصميم واجهة مستخدم لتطبيق طبي متخصص</p>
+                        <p class="english">User interface design for a specialized medical application</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="print">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1602576666092-b5d7617867cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80" alt="تصميم بروشور">
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="bilingual">
+                            <h3 class="arabic">بروشور ترويجي</h3>
+                            <h3 class="english">Promotional Brochure</h3>
+                        </div>
+                        <p>تصميم بروشور ترويجي لشركة عقارية</p>
+                        <p class="english">Promotional brochure design for a real estate company</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="branding">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="تصميم شعار">
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="bilingual">
+                            <h3 class="arabic">هوية بصرية لمتجر الكتروني</h3>
+                            <h3 class="english">E-commerce Brand Identity</h3>
+                        </div>
+                        <p>تصميم هوية بصرية متكاملة لمتجر إلكتروني للموضة</p>
+                        <p class="english">Complete visual identity for an online fashion store</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="تصميم موقع">
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="bilingual">
+                            <h3 class="arabic">تصميم موقع تعليمي</h3>
+                            <h3 class="english">Educational Website Design</h3>
+                        </div>
+                        <p>تصميم واجهة موقع تعليمي تفاعلي</p>
+                        <p class="english">Interactive educational website interface design</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="print">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="تصميم بروشور">
+                    </div>
+                    <div class="portfolio-info">
+                        <div class="bilingual">
+                            <h3 class="arabic">تصميم كتالوج منتجات</h3>
+                            <h3 class="english">Product Catalog Design</h3>
+                        </div>
+                        <p>تصميم كتالوج منتجات لشركة أثاث</p>
+                        <p class="english">Product catalog design for a furniture company</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">الخدمات <span class="english">Services</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="bilingual">
+                        <h3 class="arabic">تصميم الهوية البصرية</h3>
+                        <h3 class="english">Visual Identity Design</h3>
+                    </div>
+                    <p>تصميم هوية بصرية متكاملة تشمل الشعار، الألوان، الخطوط، ودليل الاستخدام لتعزيز حضور علامتك التجارية.</p>
+                    <p class="english">Complete visual identity design including logo, colors, fonts, and usage guide to enhance your brand presence.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="bilingual">
+                        <h3 class="arabic">تصميم الويب</h3>
+                        <h3 class="english">Web Design</h3>
+                    </div>
+                    <p>تصميم مواقع إلكترونية جذابة وسهلة الاستخدام مع الحفاظ على هوية العلامة التجارية وتجربة المستخدم المثالية.</p>
+                    <p class="english">Design attractive and user-friendly websites while maintaining brand identity and optimal user experience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <div class="bilingual">
+                        <h3 class="arabic">تصميم المواد المطبوعة</h3>
+                        <h3 class="english">Print Design</h3>
+                    </div>
+                    <p>تصميم بروشورات، كتالوجات، بطاقات عمل، ومواد ترويجية مطبوعة بجودة عالية تناسب احتياجاتك التسويقية.</p>
+                    <p class="english">Design brochures, catalogs, business cards, and promotional materials with high quality that suit your marketing needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">آراء العملاء <span class="english">Testimonials</span></h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <div class="client-img">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80" alt="سارة محمد">
+                    </div>
+                    <p class="testimonial-text">"عملت مع أحمد على تصميم هوية بصرية لشركتي الناشئة، وكانت النتيجة مذهلة. تفهم احتياجاتي تماماً وقدم تصميمًا يعكس هوية الشركة بشكل رائع."</p>
+                    <p class="testimonial-text english">"I worked with Do'oa on designing a visual identity for my startup, and the result was amazing. He completely understood my needs and delivered a design that perfectly reflects the company's identity."</p>
+                    <p class="client-name">سارة محمد - مديرة تسويق | Sara Mohammed - Marketing Manager</p>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="client-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80" alt="خالد العلي">
+                    </div>
+                    <p class="testimonial-text">"أحمد مصمم مبدع ومحترف. قدم لي تصميم موقع إلكتروني تجاوز توقعاتي. أنصح بالتعامل معه لكل من يبحث عن جودة وإبداع."</p>
+                    <p class="testimonial-text english">"Do'oa  is a creative and professional designer. He delivered a website design that exceeded my expectations. I recommend working with him to anyone looking for quality and creativity."</p>
+                    <p class="client-name">خالد العلي - صاحب شركة | Khaled Al Ali - Company Owner</p>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="client-img">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="نورة السعد">
+                    </div>
+                    <p class="testimonial-text">"تعاونت مع أحمد في تصميم مواد ترويجية لحملتنا التسويقية، وكان التصميم أنيقاً وجذاباً ساهم في نجاح الحملة بشكل كبير."</p>
+                    <p class="testimonial-text english">"I collaborated with Ahmed on designing promotional materials for our marketing campaign. The design was elegant and attractive, contributing significantly to the campaign's success."</p>
+                    <p class="client-name">نورة السعد - مديرة مشاريع | Noura Al Saad - Project Manager</p>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <span class="slider-dot active" data-slide="0"></span>
+                <span class="slider-dot" data-slide="1"></span>
+                <span class="slider-dot" data-slide="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">اتصل بي <span class="english">Contact Me</span></h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="bilingual">
+                        <h3 class="arabic">لنتواصل</h3>
+                        <h3 class="english">Let's Connect</h3>
+                    </div>
+                    <p>هل لديك مشروع تود مناقشته؟ لا تتردد في التواصل معي وسأكون سعيداً بمساعدتك في تحقيق رؤيتك.</p>
+                    <p class="english">Do you have a project you'd like to discuss? Feel free to contact me, and I'll be happy to help you bring your vision to life.</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>العنوان <span class="english">Address</span></h4>
+                            <p>كوستي/ النيل الابيض/ السودان</p>
+                            <p class="english">Kosti / White Nile State / Sudan</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>الهاتف <span class="english">Phone</span></h4>
+                            <p>+249 123456789</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>البريد الإلكتروني <span class="english">Email</span></h4>
+                            <p>Do'aa12@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="الاسم الكامل | Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="البريد الإلكتروني | Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="الموضوع | Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="الرسالة | Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">إرسال الرسالة <span class="english">Send Message</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">تصميم<span>جرافيك</span></div>
+                    <p>مصمم جرافيك مبدع ومتخصص في تصميم الهويات البصرية والمواد التسويقية الإبداعية.</p>
+                    <p class="english">Creative graphic designer specializing in visual identities and innovative marketing materials.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة <span class="english">Quick Links</span></h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية <span class="english">Home</span></a></li>
+                        <li><a href="#about">من أنا <span class="english">About</span></a></li>
+                        <li><a href="#portfolio">معرض الأعمال <span class="english">Portfolio</span></a></li>
+                        <li><a href="#services">الخدمات <span class="english">Services</span></a></li>
+                        <li><a href="#contact">اتصل بي <span class="english">Contact</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>الخدمات <span class="english">Services</span></h4>
+                    <ul>
+                        <li><a href="#">تصميم الهوية البصرية <span class="english">Visual Identity</span></a></li>
+                        <li><a href="#">تصميم الويب <span class="english">Web Design</span></a></li>
+                        <li><a href="#">تصميم المواد المطبوعة <span class="english">Print Design</span></a></li>
+                        <li><a href="#">تصميم الشعارات <span class="english">Logo Design</span></a></li>
+                        <li><a href="#">التصميم التفاعلي <span class="english">UI/UX Design</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2023 أحمد المصمم | All Rights Reserved &copy; 2025 Do'oa Graphic Designer</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+
+        // Portfolio Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Testimonial Slider
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const sliderDots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            testimonialSlides.forEach(slide => slide.classList.remove('active'));
+            sliderDots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + testimonialSlides.length) % testimonialSlides.length;
+            
+            testimonialSlides[currentSlide].classList.add('active');
+            sliderDots[currentSlide].classList.add('active');
+        }
+
+        // Auto slide
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // Dot navigation
+        sliderDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('شكراً لتواصلك! سأعود إليك في أقرب وقت ممكن.\n\nThank you for contacting me! I will get back to you as soon as possible.');
+            this.reset();
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav').classList.remove('active');
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.portfolio-item, .service-card, .about-img, .about-text').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
